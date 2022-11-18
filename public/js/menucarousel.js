@@ -1,5 +1,5 @@
 // 캐러셀 움직이는 대상 및 순서변경될때 감싸는 부모역할
-const ca_move = document.querySelector(".ca_move");
+const listwrap2 = document.querySelector(".listwrap2");
 const prevBtn2 = document.querySelector(".ca_prev");
 const nextBtn2 = document.querySelector(".ca_next");
 
@@ -25,7 +25,7 @@ let browserSizeCheck = ()=>{
         setMargin = "-100%"; // 이동후 원위치되는 수치값
     }
     // 리사이즈 / 로드 했을 때 원위치 되는 값 ca_move 작용
-    ca_move.style.marginLeft =setMargin;
+    listwrap2.style.marginLeft =setMargin;
 }
 
 window.addEventListener("resize",()=>{
@@ -42,19 +42,19 @@ window.addEventListener("load",()=>{
 
 // prev 클릭시 캐러셀 이동후 순서 교체후 원위치 시키는 작업까지
 prevBtn2.addEventListener("click",()=>{
-    ca_move.style.transition = "all 0.5s"
-    ca_move.style.marginLeft = prevChangeMargin;  //  -50%   -66.666666%  -100% -200%
+    listwrap2.style.transition = "all 0.5s"
+    listwrap2.style.marginLeft = prevChangeMargin;  //  -50%   -66.666666%  -100% -200%
     // prevBtn.style.display = "none"
     // nextBtn.style.display = "none"
     // 이전버튼 클릭시 첫번째 자식요소 선택
-    let fchild = ca_move.firstElementChild; //<div class="ca_child"><img src="image/se2_img01.jpg"></div>
+    let fchild = listwrap2.firstElementChild; //<div class="ca_child"><img src="image/se2_img01.jpg"></div>
 
     setTimeout(()=>{ // 700초 뒤에 아래 기능들 실행
         // 첫번째 자식요소를 마지막번째로 보내줌
-        ca_move.append(fchild);
+        listwrap2.append(fchild);
         // 태그순서 교체후 원위치
-        ca_move.style.transition = "none"
-        ca_move.style.marginLeft = setMargin;    //  -25% -33.333333%  -50% -100%
+        listwrap2.style.transition = "none"
+        listwrap2.style.marginLeft = setMargin;    //  -25% -33.333333%  -50% -100%
         // prevBtn.style.display = "block"
         // nextBtn.style.display = "block"
     },700)
@@ -63,19 +63,19 @@ prevBtn2.addEventListener("click",()=>{
 // next 클릭시 캐러셀 이동후 순서 교체후 원위치 시키는 작업까지
 
 nextBtn2.addEventListener("click",()=>{
-    ca_move.style.transition = "all 0.5s"
-    ca_move.style.marginLeft = "0%";
+    listwrap2.style.transition = "all 0.5s"
+    listwrap2.style.marginLeft = "0%";
     // prevBtn.style.display = "none"
     // nextBtn.style.display = "none"
     // 이후버튼 클릭시 마지막번째 자식요소 선택
-    let lchild = ca_move.lastElementChild; //<div class="ca_child"><img src="image/se2_img01.jpg"></div>
+    let lchild = listwrap2.lastElementChild; //<div class="ca_child"><img src="image/se2_img01.jpg"></div>
 
     setTimeout(()=>{ // 700초 뒤에 아래 기능들 실행
         // 첫번째 자식요소를 마지막번째로 보내줌
-        ca_move.prepend(lchild);
+        listwrap2.prepend(lchild);
         // 태그순서 교체후 원위치
-        ca_move.style.transition = "none"
-        ca_move.style.marginLeft = setMargin;     // -25% 33.333333% -50% -100%
+        listwrap2.style.transition = "none"
+        listwrap2.style.marginLeft = setMargin;     // -25% 33.333333% -50% -100%
         // prevBtn.style.display = "block"
         // nextBtn.style.display = "block"
     },700)

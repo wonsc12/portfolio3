@@ -653,28 +653,43 @@ body {
   width: 60%;
 }
 .container .cont7 .center .righmenus .rightnews {
-  width: 100%;
   display: none;
   position: relative;
-  padding: 60px;
-  border-bottom: 1px solid #adb5bd;
 }
-.container .cont7 .center .righmenus .rightnews .tewd .qwer12 .sub2 {
+.container .cont7 .center .righmenus .rightnews .tsdf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .cont7 .center .righmenus .rightnews .tsdf .tewd {
+  padding: 60px;
+  width: 40%;
+}
+.container .cont7 .center .righmenus .rightnews .tsdf .tewd .qwer12 .sub2 {
   color: brown;
 }
-.container .cont7 .center .righmenus .rightnews .tewd .qwer12 #title {
+.container .cont7 .center .righmenus .rightnews .tsdf .tewd .qwer12 #title {
   margin: 20px 0;
   color: brown;
 }
-.container .cont7 .center .righmenus .rightnews .tewd .sub22 #title {
+.container .cont7 .center .righmenus .rightnews .tsdf .tewd .sub22 .qwer122 #title {
   color: brown;
 }
-.container .cont7 .center .righmenus .rightnews .gds {
-  position: absolute;
-  top: 32px;
-  right: 176px;
+.container .cont7 .center .righmenus .rightnews .tsdf .imdsw {
+  width: 35%;
 }
-.container .cont7 .center .righmenus .rightnews .gds span {
+.container .cont7 .center .righmenus .rightnews .tsdf .imdsw .title3 {
+  width: 250px;
+  height: 250px;
+}
+.container .cont7 .center .righmenus .rightnews .tsdf .imdsw .title3 a img {
+  width: 100%;
+  height: 100%;
+}
+.container .cont7 .center .righmenus .rightnews .tsdf .gds {
+  width: 25%;
+}
+.container .cont7 .center .righmenus .rightnews .tsdf .gds span {
   font-size: 100px;
   color: brown;
 }
@@ -683,6 +698,8 @@ body {
 }
 .container .cont7 .center .righmenus .rightnews:nth-child(2) {
   display: block;
+  border-top: 1px solid #adb5bd;
+  border-bottom: 1px solid #adb5bd;
 }
 .container .cont7 .center .righmenus .rightnews:nth-child(3) {
   display: block;
@@ -1203,12 +1220,90 @@ body {
 .menucontainer .trcont1 .trtext .trbox .trgnb li:hover a {
   color: #000;
 }
+.menucontainer .menucaro {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.menucontainer .menucaro .menus2 {
+  width: 80%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.menucontainer .menucaro .menus2 .listwrap2 {
+  width: 200%;
+  display: flex;
+}
+.menucontainer .menucaro .menus2 .listwrap2 .listt {
+  position: relative;
+  width: 12.5%;
+  box-sizing: border-box;
+  padding: 0 1%;
+  border: 1px solid #acacac;
+}
+.menucontainer .menucaro .menus2 .listwrap2 .listt .munuimage {
+  width: 100%;
+  height: 250px;
+}
+.menucontainer .menucaro .menus2 .listwrap2 .listt .munuimage img {
+  width: 100%;
+  height: 100%;
+}
+.menucontainer .menucaro .menus2 .listwrap2 .listt .textp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menucontainer .menucaro .menus2 .listwrap2 .listt .textp p {
+  text-align: center;
+  margin-top: 30px;
+}
+.menucontainer .menucaro .menus2 .menubtns .ca_prev {
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  color: brown;
+  margin: 20px 0;
+}
+.menucontainer .menucaro .menus2 .menubtns .ca_prev:hover {
+  color: #fff;
+}
+.menucontainer .menucaro .menus2 .menubtns .ca_next {
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  color: brown;
+  margin: 20px 0;
+}
+.menucontainer .menucaro .menus2 .menubtns .ca_next:hover {
+  color: #fff;
+}
+.menucontainer .menucaro .menus2 .menubtns .brsa {
+  border-radius: 20px;
+  width: 30px;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menucontainer .menucaro .menus2 .menubtns .brsa:hover {
+  background-color: brown;
+}
 .menucontainer .menus {
   width: 1100px;
   margin: 0 auto;
 }
 .menucontainer .menus .ulmenus {
   margin: 100px auto;
+  border: 1px solid #adb5bd;
 }
 .menucontainer .menus .ulmenus .memeus {
   display: flex;
@@ -1216,9 +1311,14 @@ body {
 .menucontainer .menus .ulmenus .memeus li {
   width: 33.333333%;
   text-align: center;
+  line-height: 50px;
 }
 .menucontainer .menus .ulmenus .memeus li a {
   color: brown;
+}
+.menucontainer .menus .ulmenus .memeus li:nth-child(2) {
+  border-right: 1px solid #adb5bd;
+  border-left: 1px solid #adb5bd;
 }
 .menucontainer .menus .ulmenus .memeus li.on a {
   color: green;
@@ -1227,24 +1327,54 @@ body {
   margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 200px;
+  padding-bottom: 50px;
 }
-.menucontainer .menus .listwrap .list {
-  width: 22%;
+.menucontainer .menus .listwrap .listt {
+  display: none;
+  width: 30%;
+  height: 320px;
   margin: 1% 1.5%;
   border: 1px solid #acacac;
-  box-sizing: border-box;
+  background: #f7f6f3;
 }
-.menucontainer .menus .listwrap .list p {
-  margin: 10px auto;
-}
-.menucontainer .menus .listwrap .list .munuimage {
+.menucontainer .menus .listwrap .listt .munuimage {
   width: 100%;
   height: 250px;
 }
-.menucontainer .menus .listwrap .list .munuimage img {
+.menucontainer .menus .listwrap .listt .munuimage img {
   width: 100%;
   height: 100%;
+}
+.menucontainer .menus .listwrap .listt .textp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menucontainer .menus .listwrap .listt .textp p {
+  text-align: center;
+  margin-top: 30px;
+}
+.menucontainer .menus .listwrap .listt:nth-child(1), .menucontainer .menus .listwrap .listt:nth-child(2), .menucontainer .menus .listwrap .listt:nth-child(3) {
+  display: block;
+}
+.menucontainer .menus .btnWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.menucontainer .menus .btnWrap .loadMore {
+  transition: all 1s;
+  font-weight: bold;
+  width: 150px;
+  height: 50px;
+  color: brown;
+  background-color: #fff;
+  border: 1px solid #acacac;
+  border-radius: 20px;
+}
+.menucontainer .menus .btnWrap .loadMore:hover {
+  color: #fff;
+  background-color: brown;
 }
 
 .admin {
@@ -1455,7 +1585,7 @@ body {
   margin-bottom: 30px;
 }
 .listcontainer .listcenter3 .aven .line .ones {
-  margin: 10px 0 10px 10px;
+  margin: 10px 0 10px 40px;
   width: 25px;
   height: 25px;
   display: flex;
@@ -1603,7 +1733,7 @@ body {
   padding: 70px;
 }
 #spcontainer #splitWrap .right {
-  background-color: #000;
+  background-color: brown;
 }
 #spcontainer #splitWrap .right .item_box {
   justify-content: flex-end;
@@ -1618,7 +1748,7 @@ body {
 }
 .trcontainer .trcont1 .trimage {
   height: 740px;
-  height: 900px;
+  height: 700px;
 }
 .trcontainer .trcont1 .trimage img {
   width: 100%;
@@ -1698,4 +1828,29 @@ body {
 .trcontainer .cont2 .textWrap .right_Text {
   right: 0;
   text-align: right;
+}
+
+@media screen and (max-width: 1600px) {
+  .menucontainer .menucaro .menus2 {
+    width: 70%;
+  }
+  .menucontainer .menucaro .menus2 .listwrap2 {
+    width: 266.666666%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .menucontainer .menucaro .menus2 {
+    width: 90%;
+  }
+  .menucontainer .menucaro .menus2 .listwrap2 {
+    width: 400%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .menucontainer .menucaro .menus2 {
+    width: 100%;
+  }
+  .menucontainer .menucaro .menus2 .listwrap2 {
+    width: 800%;
+  }
 }

@@ -184,22 +184,29 @@
                 </div>
                 <div class="righmenus">
                     <% for(let i = 0 ; i < insert.length; i++) { %>
-                    <div class="rightnews"><a href="/brddetail/<%- insert[i].num %>">
-                        <div class="tewd">
-                            <div class="qwer12">
-                                <div class="sub2">event</div>
-                                <div id="title"><%- insert[i].subject %></div>
-                            </div>
-                            <div class="sub22">
-                                <div class="qwer122">
-                                    <div id="title"><%- insert[i].date %></div>
+                    <div class="rightnews">
+                        <div class="tsdf">
+                            <div class="tewd"><a href="/brddetail/<%- insert[i].num %>">
+                                <div class="qwer12">
+                                    <div class="sub2">event</div>
+                                    <div id="title"><%- insert[i].subject %></div>
                                 </div>
+                                <div class="sub22">
+                                    <div class="qwer122">
+                                        <div id="title"><%- insert[i].date %></div>
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                            <div class="imdsw">
+                                <div class="title3"><a href="/brddetail/<%- insert[i].num %>"><img src="/upload/<%- insert[i].file %>"></a></div>
+                           
+                            </div>
+                            <div class="gds"><a href="/brddetail/<%- insert[i].num %>">
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
                             </div>
                         </div>
-                        <div class="gds">
-                            <span class="material-symbols-outlined">arrow_forward</span>
-                        </div>
-                        </a>
                     </div>
                     <% } %>
                 </div>
