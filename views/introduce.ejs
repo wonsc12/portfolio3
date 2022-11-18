@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/js/header.js"defer></script>
+    <script src="/js/sideBtn.js"defer></script>
+</head>
+<body>
+    <%- include("common/header.ejs") %>
+    <div class="trcontainer">
+        <div class="trcont1">
+            <div class="trimage">
+                <img src="img/co45.jpg">   
+            </div>
+            <div class="trtext">
+                <h2>MENU</h2>
+                <p class="tral">Always beside you</p>
+                <p class="trhan">한잔의 커피 마음을 달래다.</p>
+                <div class="trbox">
+                    <ul class="trgnb">
+                        <li><a href="/menu/Beverage">음료</a></li>
+                        <li><a href="/menu/food">음식</a></li>
+                        <li><a href="/menu/Signature">Signature</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="cont2">
+            <div class="textWrap">
+                <div class="left_Text text">
+                    <h2>TURNAPPLE<br>
+                        MY COFFEE
+                    </h2>
+                    <p>섬세한 쿠키와 매일 구워내는 쿠키,<br>
+                       오늘의 나,오늘의 우리        
+                    </p>
+                </div>
+            </div>
+            <div class="textWrap">
+                <div class="right_Text text">
+                    <h2>BRAND SLOGAN</h2>
+                    <p>SELECT YOUR<br>
+                        MODE&MOOD
+                    </p>
+                </div>
+            </div>
+            <div class="textWrap">
+                <div class="left_Text text">
+                    <h2>당신의 시간을 어떤가요?</h2>
+                    <p>오롯이 나를위한 시간 ,내가 사랑하는 사람들과 함께<br>
+                       할수 있는 시간을 가지고 있나요? 
+                </div>
+            </div>
+            <div class="textWrap">
+                <div class="right_Text text">
+                    <h2></h2>
+                    <p>우리의 인생은 다시 돌려볼수 있는 영화가 아니기에 각자의 MODE와 MOOD로<br>
+                       오롯이 나를 위한 시간을 마주해야 합니다.
+                    </p>
+                </div>
+            </div>
+            <div class="textWrap">
+                <div class="left_Text text">
+                    <h2></h2>
+                    <p>오늘 당신이 선택한 커피는 어떤 맛인가요?<br>
+                       그리고 당신의 기분,컨디션은 어떤가요?
+                    </p>
+                </div>
+            </div>
+            <div class="textWrap">
+                <div class="right_Text text">
+                    <h2></h2>
+                    <p>내가 셀렉하는 오늘의 모드.턴플입니다.
+                    </p>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <%- include("common/footer.ejs") %>
+    <script>
+        const leftText = document.querySelectorAll(".left_Text");
+        // css position:relative; right 값을 움직이기 위한 대상들 
+        const rightText = document.querySelectorAll(".right_Text");
+
+        window.addEventListener("scroll",function(){
+            let scTop = window.scrollY;
+            
+            leftText.forEach(function(item,index){
+                // css변경 left
+                item.style.left = (scTop / 5.5) + "px";
+            });
+
+            rightText.forEach(function(item,index){
+                // css변경 right
+                item.style.right = (scTop / 5.5) + "px";
+            });
+        })
+
+    </script>
+</body>
+</html>

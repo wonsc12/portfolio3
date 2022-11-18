@@ -1,0 +1,11 @@
+https://www.selecto.co.kr/brand/main.asp
+
+npm install ejs mongodb express moment
+npm install passport passport-local express-session
+
+npm install moment-timezone 한국날짜시간
+
+npm install multer 파일다운로드
+
+2시10분
+

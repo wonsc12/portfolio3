@@ -1,0 +1,773 @@
+* { margin:0 ;padding:0;}
+    ul,li,ol { list-style:none;}
+    a { text-decoration:none;}
+    img,video { vertical-align:middle;}
+    table {border-collapse:collapse;}
+    input,select,textarea { outline:0;}
+    textarea { resize:none;}
+    body { line-height:1; overflow-x: hidden;} 
+
+    // header
+
+    .header {  margin: 0 auto; width: 100%; position: relative;
+        
+        .center {  z-index: 7; width: 1760px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
+            .logo { line-height: 100px;
+                a { color: brown;}
+            }
+            .menu { display: flex; 
+                .gnbbg{ position: absolute;left:0; top:100px;    background-color:#fff; opacity: 1;
+                    width:100%;  z-index: 5;
+                    height:0; transition: all 0.5s;    
+                }
+                .gnbbg.on { 
+                    height:150px;}
+                .selte { display: flex;
+                    li { line-height: 100px; margin: 0 35px; width: 150px; position: relative;
+                        text-align: center; 
+                        a {color: brown; font-weight: bold;}
+                        .menugnb {  display: block; position: absolute; right: 35px;z-index: 6;
+                            width: 100%;   text-align: center; top:80px;
+                            
+                            li { line-height: 45px; text-align: center; transition: all 1s; display: none;
+                                a { display: block;
+                                    height:45px;
+                                    color:brown; }
+                            }
+                            li.on {transition: all 1s;display: block;transition: all 1s;}
+                           
+                            
+                        }
+                    }
+                }
+                
+            }
+            .login { width: 150px; background-color: #fff; border-radius: 20px; transition: all 0.5s;border: 1px solid brown;
+                a {line-height: 50px; text-align: center; display: block; margin: auto 0; color: brown;  }
+            &:hover { background-color: brown;}    
+            &:hover a { color: #fff;}    
+            }
+            .login.on {background-color: #fff; border: 1px solid brown;
+                a { color: brown;}
+            }
+            .nuibutton { 
+                span { line-height: 100px; margin: 0 12px; 
+                    img {   }
+                }
+            }
+            .spanBtn { position: absolute; right: 453px; top:50px; transform: translateY(-50%);
+                .line {margin: 6px; display: block; width: 35px; height: 2px; background-color: brown; transition: all 1s;}
+            }
+            .spanBtn.chg .top { position: absolute; left: 0; top:0; transform: rotate(45deg);}
+            .spanBtn.chg .mid { transform: translateX(10px); opacity: 0;}
+            .spanBtn.chg .bot { position: absolute; left: 0; bottom: 0; transform: rotate(-45deg);}
+            
+            .sideM { width: 280px; height:100vh; background-color:#fff ; position: fixed; top:0; right: -280px;
+                     transition: all 1s;  z-index: 15;
+                .lineBtn { position: relative; display: flex; flex-direction: column;
+                    .btn2 { display: block; position: absolute; right: 10px; top:12%; transform: translateY(-50%);
+                        .line { display: block; width: 35px; height: 2px; background-color: brown;transition: all 1s;}
+                        .top2 { position: absolute; left:0; top:5px; transform: rotate(45deg);}
+                        .mid2 { transform: translateX(10px); opacity: 0; margin: 5px 0;}
+                        .bot2 { position: absolute; left:0; bottom: 5px; transform: rotate(-45deg);}
+                    
+                    }
+                    .two { margin-top: 125px;
+                        .mater { 
+                            li { line-height: 50px;
+                                a { }
+                                .mDepth2 {
+                                    li { line-height: 50px;
+                                        a {}
+                                    }
+                                }
+                            }
+                        }
+                        .click {
+                            span {}
+                        }
+                        .login {
+                            a {}
+                        }
+                    }
+                }
+            }
+            .sideM.move { right: 0;}
+            
+        }
+    }
+    .container {
+        .cont1 {
+            .silder {  position: relative; width: 100%; height: 800px; 
+                .view{ display:flex; width:100%;  
+                    .turnapple{width:100%;  height: 800px;position: absolute; opacity: 0;z-index: 2;transition:all 1s;
+                        &:nth-child(1){opacity: 1; z-index: 3;}
+                        a {
+                            img {width: 100%; height: 100%;}
+                        }
+                    }
+                }
+                .slidetext { position: absolute; left:50%;top:50%; z-index: 6;
+                            transform:translate(-50%,-50%); text-align: center;
+                    h2 { color: #fff; font-size: 40px; font-weight: bold;}
+                    p { color: #fff; font-size: 30px; margin: 40px 0 30px 0; line-height: 35px;}    
+                }
+                
+            }
+            
+            .btns {
+                div{ position:absolute ; top:50%; transform: translateY(-50%); width: 35px; 
+                height: 55px; background-color: #fff; z-index: 4; display: flex;
+                border-radius: 20px;
+                &:hover {background-color: brown;}
+                &:hover i{color: #fff;}    
+                }
+                
+                .prevBtn {left:30px;
+                    i{position: absolute;left:50%;top:50%;
+                        transform:translate(-50%,-50%);
+                        font-size: 50px;color: brown;
+                        
+                    }
+                    
+                     
+                }     
+                .nextBtn {right:30px;
+                    i{position: absolute;left:50%;top:50%;
+                        transform:translate(-50%,-50%);
+                        font-size: 50px;color: brown;
+                         
+                    }
+                    
+                }
+                
+            
+            }
+            .circleBtn{ z-index: 4; display: flex; position: absolute; left: 50%;bottom: 10px; transform: translateX(-50%); z-index: 10;
+                .on{
+                    a{background-color: brown;width: 20px;}
+                }
+                li{
+                    
+                    a {display: block; width: 20px; height: 20px; border-radius: 100%;
+                       background-color: #fff; margin: 5px  15px; transition: all 0.5s;}
+                    
+    
+                }    
+    
+            }
+        }
+        .cont2 { position: relative;
+            .selec {  position: absolute; top: 50px ; left:50px ; z-index: 55;
+                h2 { font-size: 60px; color: #fff;}
+            }
+            .sbcmenu { position: absolute; top:200px; left:50px; z-index: 55;
+                h2 { font-size: 60px; color: #fff;}
+                .menulist {
+                    li { margin-top: 20px;
+                        a{ color: #fff; font-size: 50px;}
+                    }
+                }
+            }
+            .tabb { 
+                .tabcenter {width: 100%;  position: relative; display: none; 
+                    &:nth-child(1) { display:flex;}
+                    .midimage {  z-index: 55; width: 250px; height: 250px; position: absolute; top:50% ; left:50%; transform: translate(-50%,-50%);
+                        img { width: 100%; height: 100%; border-radius: 100%;}
+                    }
+                    .leftmenu { width: 50%; 
+                        .leftimage { width: 100%; height: 945px;  background-image:url(../img/co8.jpg); background-repeat:no-repeat; background-size:cover; background-position:center; transition:all 0.5s;}    
+                    }
+                    .righttmenu { width: 50%; display: flex; align-items: center; justify-content: center;
+                        h2 {font-size: 40px; color: brown;}
+                        p { margin: 30px 0 130px 0; color: brown;}
+                        .rightimage { display: flex; justify-content: space-between; margin: 0 1%; box-sizing: border-box;
+                            .juice { width: 190px; height: 200px; margin: 0 10px;
+                                img{ width: 100%; height: 100%;}
+                            }
+                        }
+                        .texttoping { margin-top: 150px;
+                            h2 { }
+                            &::after { content: ""; display: inline-block; width: 100%; height: 2px; background-color: #ff0000;
+                                margin: 30px 0;
+                            }
+                        }
+                        
+                        .milk { display: flex;
+                            .milkimage { width: 70px; height: 70px;  margin: 0 20px;
+                                img { width: 100%; height: 100%;border-radius: 100%;}
+                                h2 { width: 150px; font-size: 15px; margin-top: 20px;}
+                            }
+                        }
+                    }
+                    
+                } 
+            }
+        }
+        .cont3 { display: flex; justify-content: center;
+             h2 { font-size: 80px; margin: 200px 0; line-height: 100px; color: brown;}
+        }
+        .cont4 { height: 745px; width: 100%;
+            img { height: 100%; width: 100%;}
+        }
+        .cont5 {  display: flex; justify-content: center; 
+            .center { width: 1600px ; margin: 0 auto; display: flex; justify-content: space-between;
+                        position: relative;
+                .left {  width: 100%;
+                    .texts { 
+                        .text { 
+                            h2 {margin: 200px 0 40px 0; font-size: 55px; line-height: 80px; color: brown; }
+                            p { line-height: 40px; color: brown;}    
+                        }
+                        .countup {  display: flex;
+                            .count { border: 1px solid #acacac; margin-top: 81px;  width: 50%;
+                                h2 { margin: 35px 0; margin-left: 40px; color: brown; }
+                                    .countUp2{  display: flex;
+                                        .pack { font-size: 90px;  margin-left: 40px;  color: brown;
+                                            
+                                        }
+                                        .pdds { font-size: 50px; color: brown; margin: 40px 0 0 20px;}
+                                    }   
+                                    .dsef { font-size: 20px; margin: 40px 0 40px 40px;color: brown; }     
+                            }
+                        }
+                        .coffe {border: 1px solid brown;  margin: 50px 0; display: flex; justify-content: center; align-items: center; width: 200px ; height: 60px ; background-color: #fff; border-radius: 20px;
+                            a { display: block; color: brown; }
+                            &:hover { background-color: brown;}
+                            &:hover a{ color: #fff;}
+                        }
+                    }      
+                }
+            }
+        }
+            
+        .cont6 {  width: 100%;  height: 700px; background-color: brown;  margin : 200px 0;
+            .center6{ position: relative; display: flex; justify-content: center;width: 100%;
+                .silder{ width: 910px; height: 310px;position: relative;
+                    .view { width: 100%; height: 100%; margin-top: 116px;
+                        > div { opacity: 0; width: 100%; height: 100%; position: absolute;  transition: all 0.5s; z-index: 2;
+                            &:nth-child(1) { opacity: 1; z-index: 3;}
+                        }
+                        .box10 { text-align: center;
+                            img{width: 300px; height: 300px; border-radius: 100%;}
+                            h2 { margin: 25px 0 13px 0; color: #fff;}
+                            .envato {  margin-bottom: 33px; color: #bcbcbc;}
+                            .lorem {  line-height: 30px;color: #fff;}
+                        }
+                    }
+                    .circleBtn2 {text-align: center;  position: absolute; left: 50%; bottom: -350px; transform: translateX(-50%); display: flex;  z-index: 4;
+                        .on {
+                            a {background-color:#fff ;}
+                        }
+                        li { width: 40px; height: 40px;  display: flex; justify-content: center; align-items: center;
+                            a { display: block ; width: 20px; height: 20px; margin: 0 10px; transition: all 0.5s;  ; background-color: #000; border-radius: 100%;}
+                        }
+                        li.on a  {background-color:#fff ;}
+                    }
+                }
+            }
+        }
+        .cont7 {padding: 200px 0;
+            .center { border: 1px solid #adb5bd; display: flex;
+                .leftnews { width: 40%; padding: 70px; border-right: 1px solid #acacac;
+                    h2 { font-size: 80px; color: brown;
+
+                    }
+                }
+                .righmenus { width: 60%;  
+                    .rightnews { width: 100%; display: none; position: relative; padding: 60px;   border-bottom: 1px solid #adb5bd;  
+                        .tewd { 
+                            .qwer12 {
+                                .sub2 { color: brown;}
+                                #title {margin: 20px 0; color: brown;}
+                            }
+                            .sub22 {
+                                .qwer122 { }
+                                #title {color: brown; }
+                            }
+                            
+                        }
+                        .gds { position: absolute; top:32px; right: 176px;
+                            span { font-size: 100px; color: brown;}
+                        }
+                        &:nth-child(1) { display: block;}
+                        &:nth-child(2) { display: block;}
+                        &:nth-child(3) { display: block;}
+                    }
+                }
+            }
+        }
+
+    }
+    
+   
+
+    // footer 페이지
+    .footer {  display: flex; justify-content: center; text-align: center; padding: 86px 0 70px 0;
+                background-color: brown;
+        .fotcenter { 
+            a { color: #fff;}
+            
+            .nuibutton { margin: 48px 0;
+                span {margin: 0 40px;
+                    
+                }
+            }
+            .tiad  { color: #fff;}
+            .tiad2 {  margin: 60px 0 115px 0;
+                span {color: #fff; line-height: 35px;
+                    &::after {  content: ""; display: inline-block; width: 2px; height: 17px;
+                                 background-color: #fff; margin: 0 10px; position: relative; top:3px;
+                                }
+                    &:nth-child(2)::after  { display: none;}    
+                    &:nth-child(7)::after  { display: none;}      
+                }
+                     
+                
+                
+                }
+                
+            
+            .tiad3 { color: #fff;}
+        }
+    }
+
+    // 관리자 상품 등록페이지
+
+    .prdstore { margin: 300px auto; 
+        .adminmenu{ display: flex; justify-content: center;
+            .admin_menu { display: flex;
+                li{ line-height: 100px; margin: 0 50px;
+                    .teds{ font-size: 30px; color: brown; opacity: 0.3; }
+                    .dfd { color:brown; opacity: 1; font-size: 30px;}
+                }
+            }
+        }
+        .prdwrap {  width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap;
+            .list { width: 31%; margin: 10px 1%; background-color: #f7f6f3;
+                p { margin: 10px 0;}
+
+            }
+            .imgse { width: 100%; height: 250px;
+                img{ width: 100%; height: 100%;}
+
+            }
+        }
+        #addprdlist {width: 1100px; margin: 200px auto;
+            .box4 {height: 35px;padding-left: 10px; width: 240px;border-radius: 4px; border: 1px solid #adb5bd;}
+            .box5 { height: 35px; padding-left: 10px; width: 240px;border-radius: 4px; border: 1px solid #adb5bd;}
+            .box6 { padding-top: 5px; height: 30px; padding-left: 10px; width: 240px;border-radius: 4px; border: 1px solid #adb5bd;}
+            .storebuttn { width: 70px;  height: 34px;border-radius: 4px; background-color:#adb5bd ; border: none;background-color: #fff; color:brown; border: 1px solid #000;
+                &:hover { background-color: brown; color: #fff;}
+            }
+        }
+        
+        
+    }
+    // 관리자 글 등록 페이지
+    .brd_center2 {}
+
+    // 관리자 매장등록 페이지
+
+    .prdstore2 { margin: 300px auto; 
+        .adminmenu2 { display: flex; justify-content: center;
+            .admin_menu { display: flex;
+                li{ line-height: 100px; margin: 0 50px;
+                    .teds{font-size: 30px; color: brown; opacity: 0.3; }
+                    .dfd {color: brown;  opacity: 1;}
+                }
+            }
+        }
+        .storewrap { width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap;
+            .list { width: 31%; margin: 20px 1%; 
+                .line{ display: flex; margin: 10px 0;}
+            }
+        }
+        .storein { width: 1100px;  margin: 50px auto;
+            h2 {}
+        }
+        .addstror { width: 1100px;  margin: 0 auto;
+            .city1 { border: none; height: 34px; border-radius: 5px; border: 1px solid #adb5bd; }
+            .city2 { border: none; height: 34px; border-radius: 5px; border: 1px solid #adb5bd; }
+            .box11 { border: none;height: 32px; border-radius: 5px; border: 1px solid #adb5bd;} 
+            .box6 { width: 100px; border: none; height: 34px; border-radius: 5px; border: 1px solid #adb5bd; background-color: #fff; color: brown;
+            &:hover { background-color: brown; color: #fff;}
+            }
+            .box7 { margin-top: 10px; border: none; height: 32px; border-radius: 5px; border: 1px solid #adb5bd; }
+            .box12 { width: 100px; border: none; height: 34px; border-radius: 5px; border: 1px solid #adb5bd;background-color: #fff; color: brown;
+                &:hover { background-color: brown; color: #fff;}
+            }
+        }
+    }
+
+    // 고객 매장안내 페이지
+    .container_store {
+        .storemenu {  width: 1500px; margin: 100px auto;  display: flex; justify-content: flex-start;
+            h2{  font-size: 80px;  color: brown;}
+        }
+        .storemenu2 { width: 1100px; margin: 100px auto;  display: flex; justify-content: center;
+            h2 { margin: 0 20px; 
+                a {color: brown;}
+            &:nth-child(2) { 
+                a {color: brown; opacity: 0.3;}
+            }
+            }
+        }
+        .searcg2d { width: 1100px; margin: 0 auto; 
+            .searmeneu { display: flex; justify-content: center; margin-bottom: 50px;
+                h2 {color: brown;}
+            }
+            .searc { display: flex; justify-content: center;
+                .search3 { display: flex; align-items: center; width: 50%;
+                    .city1 {width: 150px ;height: 34px; color: brown; border: none;border: 1px solid #adb5bd; border-radius: 5px;
+                        .city1option {}
+                    }
+                    .city2 {width: 150px ;height: 34px; margin: 0 10px;color: brown;border: none;border: 1px solid #adb5bd; border-radius: 5px;}
+                    .city3 {width: 50px ;height: 34px; color: #fff; background-color: brown;border: 1px solid #adb5bd; border-radius: 5px;  border: none;}
+                    .text2 { margin-right: 20px; color:brown;}
+                }   
+            }
+            .seac {  display: flex; justify-content: center; margin-top: 30px;
+                .search4 { display: flex;width: 50%; align-items: center;
+                    .ciy4 {width: 307px ;height: 34px; margin-right: 10px; border: 1px solid #adb5bd; border-radius: 5px;}
+                    .ciy5 {width: 50px ;height: 34px; border: 1px solid #adb5bd; border-radius: 5px; border: none; background-color:brown; color: #fff;}
+                    .text3 { margin-right: 40px; color: brown;}
+                }
+            }
+        }
+        .storemune3 { width: 1100px; margin: 150px auto; text-align: center;
+            h2 { font-size: 40px; color: brown;}
+        }
+        .storelist { width: 1100px; margin: 150px auto;
+            .storebox { display: flex; text-align: center; align-items: center;
+                .ere {width: 20%;border-bottom:  1px solid brown; height: 60px;border-top:  1px solid brown; height: 50px;
+                    display: flex; justify-content: center; align-items: center; color: brown; 
+                &:nth-child(3) { width: 40%;}
+                }
+                
+            }
+            .list { display: flex; text-align: center;  align-items: center;
+                .wriw {width: 20%;border-bottom:  1px solid brown ; height: 60px;
+                display: flex; justify-content: center; align-items: center;color: brown;}
+                .line3 { width: 40%;}
+            }
+        }
+    }
+
+    // 오픈스토어 페이지
+
+    .container_opstore { 
+        .storemenu {  width: 1500px; margin: 100px auto;  display: flex; justify-content: flex-start;
+            h2{  font-size: 80px;  color: brown;}
+        }
+        .storemenu2 { width: 1100px; margin: 100px auto;  display: flex; justify-content: center;
+            h2 { margin: 0 20px; 
+                .sgsd {color: brown; opacity: 0.3;}
+                .sgsd2 { color: brown;}
+            }
+            
+            
+        }
+        .opencontainer { width: 1100px; margin: 300px auto;  display: flex; justify-content: center;
+            h2 { font-size: 65px; color:brown;}
+        }
+    }
+    // 보도자료
+
+    .container_opstore { 
+        .storemenu {  width: 1500px; margin: 100px auto;  display: flex; justify-content: flex-start;
+            h2{  font-size: 80px;  color: brown;}
+        }
+        .storemenu2 { width: 1100px; margin: 100px auto;  display: flex; justify-content: center;
+            h2 { margin: 0 20px; 
+                .sgsd {color: brown; opacity: 0.3;}
+                .sgsd2 { color: brown;}
+            }
+            
+            
+        }
+        .opencontainer { width: 1100px; margin: 300px auto;  display: flex; justify-content: center;
+            h2 { font-size: 65px; color:brown;}
+        }
+    }
+
+
+    // 메뉴소개 페이지
+
+    .menucontainer { 
+        .trcont1 { position: relative;
+            .trimage {   height:700px; 
+                img { width: 100%; height: 100%;}
+                
+            }
+            .trtext { position: absolute; top:50% ; left:50%; transform: translate(-50%,-50%);
+                        text-align: center;
+
+                h2 { font-size: 80px; }
+                .tral {font-size: 40px; margin: 30px 0;}
+                .trhan {font-size: 40px;  }
+                .trbox {margin-top: 100px ;
+                    .trgnb {display: flex; justify-content: center;  border: 1px solid #000;
+                        li { width: 33.333333%; line-height: 50px; 
+                            a { color: #000; display: block; height: 100%; }
+                            &:nth-child(2) { border-left: 1px solid #000;  border-right: 1px solid #000;}
+                            &:hover {background-color: #fff;}
+                            &:hover a{color: #000;}
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        .menus { width: 1100px ; margin: 0 auto;
+            .ulmenus { margin: 100px auto;
+                .memeus {display: flex;
+                    li { width: 33.333333%; text-align: center;
+                        a { color: brown;}
+                    }
+                    li.on{
+                        a { color:green;}
+                    }
+                }
+            }
+            .listwrap { margin-top: 100px; display: flex; flex-wrap: wrap; padding-bottom: 200px;
+                .list{ width: 22%; margin: 1% 1.5%; border: 1px solid #acacac; box-sizing: border-box;
+                    p{  margin: 10px auto;}
+                    .munuimage { width: 100%; height: 250px;
+                        img { width: 100%; height: 100%; }
+                    }
+                }
+            }
+            
+            
+        }
+    }
+
+    // 관리자 로그인
+
+    
+
+    .admin { margin-top: 200px; 
+        .logi2 {  display: flex; justify-content: center;
+            h2{font-size: 75px;}
+        }
+        .adminlogin { width: 1100px; margin: 0 auto; text-align: center;
+            
+            .adminbox {
+                .adminin { width: 800px; height: 80px;  margin-top: 98px; padding-left: 15px; font-size: 30px;}
+             }
+            
+            .adminbtn { margin-top: 100px;  display: flex; justify-content: center; align-items: center;    
+                .butt{ margin-top: 100px;
+                    width: 220px; height: 80px; background-color: #fff; border: none;
+                    margin: 0 20px; font-size: 30px; border: 1px solid #000; 
+                    &:hover { background-color: brown; color: #fff;}
+                }
+            }
+        }
+    }
+
+     // 관리자 로그인 css
+     .adminheader {  display: flex; width: 100%; 
+        .admincenter { display: flex; justify-content: space-between; width: 100%;
+            .tdsd { width: 25%; text-align: center;
+                li{ line-height: 150px; 
+                    a { font-size: 80px; color: brown;}
+                }
+            }
+            .login { width: 25%;
+                .loginuser { font-size: 40px;}
+                .loginb { font-size: 40px; }
+                .loginfd { font-size: 40px; margin: 20px 0;}
+             }
+             .selte {display: flex; width: 50%; text-align: center;
+                li { line-height: 150px; margin: 0 30px; width: 100%;
+                    a { color: brown; font-size: 20px;}
+                }
+            }
+        }
+       
+     }
+
+     
+
+     // 관리자 글 작성 페이지
+
+     .insertcontainer { margin: 300px auto; 
+        .adminmenu { display: flex; justify-content: center;
+            .admin_menu { display: flex;
+                li { line-height: 100px; margin: 0 50px;
+                    .rdfsf {font-size: 30px; color: brown; opacity: 0.3;
+                        
+                    }
+                    .rdfsfd { color: brown; opacity: 1;}
+                    
+                
+                }
+            }
+        }
+        .insert_center2 { width: 1100px; margin: 100px auto;
+            .name {
+                .put { width: 50%; height: 40px; margin: 10px 0; padding-left:  15px;
+
+                }
+                
+            }
+            .area { width: 100%; height: 250px; resize: none; padding: 15px 0 0 15px;}
+                .filebox { margin-top: 20px;
+                    .file { border: none; width: 150px; height: 50px;}
+                }
+                .btnss {
+                    .btn { border: none; width: 150px; height: 50px; background-color: #fff; }
+                    .qws { color: brown; border: 1px solid #adb5bd; 
+                        &:hover { background-color: brown; color: #fff;}
+                    }
+                    .qwq { color: brown; border: 1px solid #adb5bd; 
+                        &:hover { background-color: brown; color: #fff;}}
+                }
+
+        }
+     }
+
+    // 게시글 리스트
+    .listcontainer { margin: 0 auto; 
+        .listemenu {  width: 1500px; margin: 100px auto;  display: flex; justify-content: flex-start;
+            h2{  font-size: 80px;  color: brown}
+        }
+        .listmenu2 { width: 1100px; margin: 100px auto;  display: flex; justify-content: center;
+            h2 { margin: 0 20px; 
+                a {color: brown;}
+            &:nth-child(2) { 
+                a {color: brown; opacity: 0.3;}
+            }
+            }
+        }
+        .listcenter3{width: 1100px;  margin: 0 auto;
+            .aven {width: 100%; display: flex; flex-wrap: wrap;
+                .line {  width: 350px; margin: 0 8px; position: relative; border: 1px solid #adb5bd; box-sizing: border-box; margin-bottom: 30px;
+                    .ones {margin:10px 0 10px 10px;   width: 25px ; height: 25px; display: flex; justify-content: center; align-items: center; }
+                    .wrwd { width: 100%; height: 233px;
+                        img { width: 100%; height: 100%;}
+                    
+                        .wrtext { position: absolute; left:23px; top:50px ; display: flex; text-align: center; align-items: center; 
+                            p{color: #fff; width: 90px; line-height: 40px; margin: 0 5px; border-radius: 10px;
+                                &:nth-child(1) { background-color: #274abb;}
+                                &:nth-child(2) { background-color: #ff0000;}
+                            }
+                        }
+                    }
+                    .wrwd6 { border-top:1px solid #acacac; 
+                        .wrwd3 { line-height: 50px; color: #acacac;}
+                        .wrwd4 { line-height: 50px; color: #acacac;}
+                    }
+                     .wrwd7 { padding-left: 20px;
+                        .wrwd5 { margin-top: 24px;
+                            .tiwd { color: #000; font-weight: bold;}
+                        }
+                        .wrwd2 { margin: 20px 0; color: #acacac;}
+                    }
+                    .wrwd6 {width: 310px;  display: flex; justify-content: space-between; margin: 0 auto; }
+                    
+                }
+            }
+
+        }
+    }
+
+    // 게시글 상세페이지
+
+    .detailcontainer {
+        .brd_centerload {  width: 1100px; margin: 100px auto; 
+            .upload { width: 100%; height: 615px;
+                img { width: 100%; height: 100%;}
+            }
+            .filebox {width: 18%;height: 44px; border: 1px solid #adb5bd; display: flex; align-items: center;padding-left: 10px;}
+            .qwer12 {margin: 45px 0;  margin-right: 20px;
+                .area { line-height: 35px;}
+                #title { font-weight: bold; font-size: 40px; }
+            }
+            .sub22 { display: flex; 
+                i { margin-right: 5px; }
+                .qwer122 { display: flex; margin-right: 20px; }
+            }
+            
+        }
+    }
+
+    // 소개페이지
+    #spcontainer {
+
+        #splitWrap { width: 100vw; height: 100vh; position: relative; overflow: hidden;
+    
+            .layer { width: 100vw; height: 100vh; position: absolute;
+                .item_box { width: 100vw; height: 100vh; position: absolute;
+                           display: flex; align-items: center;
+                    h1{ font-size: 50px; line-height: 1.2;}
+                    img { position: absolute; left: 50%; top:50%; transform: translate(-50%,-50%);}
+                }
+            }
+            .left { background-color: #fff; width: 50vw; overflow: hidden;
+                .item_box { 
+                    h1 { color: #000; padding: 70px;}
+                }
+                
+            }
+            .right { background-color: #000;
+                .item_box { justify-content: flex-end;
+                    h1 { padding: 70px; color: #fff;}
+                }
+            }
+            
+        } 
+
+    }
+    // 소개페이지2
+    .trcontainer {
+        .trcont1 { position: relative;
+            .trimage {  height: 740px; height:900px; 
+                img { width: 100%; height: 100%;}
+                
+            }
+            .trtext { position: absolute; top:50% ; left:50%; transform: translate(-50%,-50%);
+                        text-align: center;
+
+                h2 { font-size: 80px; }
+                .tral {font-size: 40px; margin: 30px 0;}
+                .trhan {font-size: 40px;  }
+                .trbox {margin-top: 100px ;
+                    .trgnb {display: flex; justify-content: center;  border: 1px solid #000;
+                        li { width: 33.333333%; line-height: 50px; 
+                            a { color: #000; display: block; height: 100%;}
+                            &:nth-child(2) { border-left: 1px solid #000;  border-right: 1px solid #000;}
+                            &:hover {background-color: #fff;}
+                            &:hover a{color: #000;}
+                        }
+                    }
+                }
+            }
+        }
+        .cont2 { background-color: #000; display: flex; justify-content: center ;
+                 flex-direction: column; align-items: center    ;
+            .textWrap { width: 50%; margin: 70px 0;
+                .text { position: relative;
+                    h2 { font-size: 20px; color: #fff; margin-bottom: 20px;}
+                    p { font-size: 16px; color: #fff; line-height: 1.5  ;}
+                }
+                .left_Text { left:0
+    
+                }
+                .right_Text { right: 0;  text-align: right;
+    
+                }
+            }
+        }
+    }
+    
+
+    
+
+    
+
+    

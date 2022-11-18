@@ -1,0 +1,25 @@
+학원카페에
+
+UI/UX 요구분석 - 본인성함
+
+*저번주 배운 상품등록/매장등록(관리자)
+ 사용자 페이지(해당 상품 보는 페이지)
+ 매장 검색페이지 (검색)
+
+깃허브 원격저장소 주소 업로드
+작업된 화면의 캡쳐본
+
+이력서/자소서 ->양식()
+
+커피메뉴 더보기
+위 음료 슬라이더
+
+ /* 텍스트 들어갔을 때 공백 / 줄바꿈 / 띄어쓰기 처리에 관련된 부분 */
+        .context { white-space:pre;}
+        .text { width: 20%; white-space: nowrap; border: 1px solid red;
+                text-overflow: ellipsis; overflow: hidden;
+        }
+        /* white-space:nomal; 띄어쓰기도 병합되고 줄바꿈도 병합됨.가로 사이즈에 막히면 자동으로 줄바꿈 */
+        /* white-space:nowrap; 텍스트가 줄바꿈없이 그냥 한줄로 뜸 띄어쓰기 병합*/
+        /* white-space:pre; 해당태그안에서 줄바꿈 띄어쓰기 같은 것들이 유지됨 */
+        /* ext-overflow: ellipsis; 말줄임표.... */

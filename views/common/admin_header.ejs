@@ -1,0 +1,30 @@
+<div class="adminheader">
+    <div class="admincenter">
+        <div class="login">
+            <% if(!userData) { %> <!-- // 회원정보프로퍼티가 없을때 -->
+            <a class="loginuser loj" href="/admin">관리자로그인</a>
+            <% } else { %>
+            <p class="loginfd">관리자 로그인 중..</p>
+            <a class="loginb loj" href="/logout">로그아웃</a>
+            <% } %> 
+        </div>
+        <ul class="tdsd">
+            <li><a href="/">턴플커피</a></li>
+        </ul> 
+        <ul class="selte">
+            <li>
+                <a href="/introduce">턴플커피</a>
+            </li>
+            <li>
+                <a href="/menu/Beverage">메뉴</a>
+            </li>
+            <li>
+                <a href="/store">매장안내</a>
+            </li>
+            <li>
+                <a href="/brdlist">WHAT`S NEW</a>
+            </li>
+        </ul> 
+    </div>
+    
+</div>
