@@ -2,17 +2,17 @@ const silderView2 = document.querySelectorAll(".box10");
 
 const circleBtn2 = document.querySelectorAll(".circleBtn2 > li");   
 
-const silderWrap2 = document.querySelector(".silder");
+const silderWrap2 = document.querySelector(".center6 > .silder2");
 
 let sNumber2 = 0;
 
 
 
-for(let j=0; j < circleBtn2.length; j++){
+for(let a=0; a < circleBtn2.length; a++){
 
-    circleBtn2[j].addEventListener("click",function(e){
+    circleBtn2[a].addEventListener("click",function(e){
         e.preventDefault();
-        sNumber2 = j; //클릭한 동그라미 버튼 순번값을 슬라이드 순번값으로 넣어줌
+        sNumber2 = a; //클릭한 동그라미 버튼 순번값을 슬라이드 순번값으로 넣어줌
         silderStart2(); //슬라이드 화면 동작함수 호출
     });
 }
@@ -53,10 +53,10 @@ let autoSiled2 = setInterval(function(){
 
     function silderStart2(){
 
-        for ( let i = 0 ; i < circleBtn2.length; i++){
-            circleBtn2[i].classList.remove("on");
-            silderView2[i].style.opacity = 0;
-            silderView2[i].style.zIndex = 2;
+        for ( let b = 0 ; b < circleBtn2.length; b++){
+            circleBtn2[b].classList.remove("on");
+            silderView2[b].style.opacity = 0;
+            silderView2[b].style.zIndex = 2;
         }
 
         circleBtn2[sNumber2].classList.add("on");

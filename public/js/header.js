@@ -22,7 +22,7 @@ menu.addEventListener("mouseleave",function(){
     for(let i=0; i< menugnb.length; i++){
         
         menugnb[i].classList.remove("on");
-        menugnb[i].style.transition = "all 1.5s"
+        
     }
     gnbBg.classList.remove("on");
     login.classList.remove("on");

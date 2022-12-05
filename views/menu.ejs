@@ -10,15 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="/js/header.js"defer></script>
     <script src="/js/sideBtn.js"defer></script>
-    <script src="/js/menulist.js"defer></script>
     <script src="/js/menucarousel.js"defer></script>
+    <script src="/js/menulist.js"defer></script>
 </head>
 <body>
     <%- include("common/header.ejs") %>
     <div class="menucontainer">
         <div class="trcont1">
             <div class="trimage">
-                <img src="/img/co34.jpg">   
+                <img src="/img/cof3.jpg">
+                <div class="bg"></div>   
             </div>
             <div class="trtext">
                 <h2>MENU</h2>
@@ -35,13 +36,22 @@
         </div>
         <div class="menucaro">
             <div class="menus2">
+                <div class="ulmenus3">
+                    <ul class="memeus3">
+                        <li class="on"><a href="/menu/Beverage">음료</a></li>
+                        <li><a href="/menu/food">음식</a></li>
+                        <li><a href="/menu/Signature">Signature</a></li>
+                    </ul>
+                </div>
                 <div class="listwrap2">
+                    
                     <% for(let i=0; i< prdData.length; i++) {%>
+                        
                         <div class="listt">
-                            <div class="munuimage">
+                            <div class="munuimage2">
                                 <img src="/upload/<%- prdData[i].thumbnail %>">
                             </div>
-                            <div class="textp">
+                            <div class="textp2">
                                 <p><%- prdData[i].name %></p>
                             </div>
                         </div>
@@ -53,7 +63,7 @@
                 </div>
             </div>
         </div>
-        <div class="menus">
+        <div class="menusds">
             <div class="ulmenus">
                 <ul class="memeus">
                     <li class="on"><a href="/menu/Beverage">음료</a></li>
@@ -65,7 +75,7 @@
         <div class="menus">
             <div class="listwrap">
                 <% for(let i=0; i< prdData.length; i++) {%>
-                    <div class="listt">
+                    <div class="lists">
                         <div class="munuimage">
                             <img src="/upload/<%- prdData[i].thumbnail %>">
                         </div>
@@ -100,7 +110,22 @@
                         item.classList.remove("on");
                 }
         });
-        
+        let currentPath2 = window.location.pathname;
+        const memeus3 = document.querySelectorAll(".memeus3 li");
+
+        memeus3.forEach((item,index)=>{ //반복문 3번
+           
+           let memeusRef2 =  item.querySelector("a").getAttribute("href"); //해당 li태그 메뉴에 있는 자식 a태그의 href 속성값 가져옴
+               
+               if(currentPath2 === memeusRef2){ // 현재 페이지 경로값과 a태그 href값과 비교해서 맞는 li태그만 활성화 작업
+                       item.classList.add("on");
+                       
+                       
+               }
+               else {
+                       item.classList.remove("on");
+               }
+       });
     </script>    
 </body>
 </html>

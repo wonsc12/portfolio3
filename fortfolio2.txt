@@ -7,5 +7,5 @@ npm install moment-timezone 한국날짜시간
 
 npm install multer 파일다운로드
 
-2시10분
+npm init
 

@@ -1,6 +1,6 @@
 
 let loadBtn = document.querySelector(".loadMore"); 
-let listt = document.querySelectorAll(".listt");  
+let boxList = document.querySelectorAll(".lists");  
 let startIndex = 3; 
 
 
@@ -8,14 +8,14 @@ let startIndex = 3;
 loadBtn.addEventListener("click",function(){
     
     for(let i = startIndex ; i < startIndex + 3 ; i++){
-        listt[i].style.display = "block";
+        boxList[i].style.display = "block";
 
     }
    
     startIndex = startIndex + 3;
 
    
-    if(startIndex >= listt.length){
+    if(startIndex >= boxList.length){
         loadBtn.style.display = "none";
     }
    

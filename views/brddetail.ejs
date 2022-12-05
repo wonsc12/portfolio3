@@ -13,11 +13,6 @@
     <%- include("common/header.ejs") %>
     <div class="detailcontainer">
         <div class="brd_centerload">
-            <% if(insertData.file){ %>
-            <div class="upload">
-                <img src="/upload/<%- insertData.file %>">
-            </div>
-            <% } %>
             <div class="qwer12">
                 <div class="sub2"></div>
                 <div id="title"><%- insertData.subject %></div>
@@ -28,12 +23,18 @@
                     <div id="title"> : <%- insertData.date2 %></div>
                 </div>
             </div>
+            <% if(insertData.file){ %>
+            <div class="upload">
+                <img src="/upload/<%- insertData.file %>">
+            </div>
+            <% } %>
+            
             <div class="qwer12">
                 <div class="sub2"></div>
                 <div class="area"><%- insertData.context %></div>
             </div>
             <% if(insertData.file){ %>
-            <div class="filebox"><a href="/upload/<%- insertData.file %>" download><%- insertData.file %>   DOWN</a></div>
+            
             <% } %>
         </div>
         

@@ -10,7 +10,7 @@ const moment = require("moment");
 const momentTimezome = require("moment-timezone");
 
 const app = express();
-const port = process.env.PORT || 1200;
+const port = process.env.PORT || 8080;
 
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended: true}));
@@ -81,24 +81,88 @@ const upload = multer({ storage: storage })
   // });
 
   // 매장 검색 페이지(사용자)
-app.get("/store",(req,res)=>{
+app.get("/store",async(req,res)=>{
+  let pageNumber = (req.query.page ==null) ? 1 : Number(req.query.page) ; //let pageNumber = 조건식 ? 참 : 거짓 ;
+  // console.log(pageNumber);
+  
+  // 블록당 보여줄 데이터 갯수  
+  let perPage = 4;   // 게시판 목록에 보여줄 갯수
+  
+  // 블록당 보여줄 페이징 번호 갯수
+
+  let blockCount = 3; // 숫자에 따라 계산은 달라짐
+
+  // 현재 페이지 블록 구하기
+
+  let blockNum = Math.ceil(pageNumber / blockCount);  // Math.ceil 올림
+
+  // console.log(blockNum);
+
+  // 블록안에 있는 페이징의 시작번호 값을 알아내기
+
+  let blockStart = ((blockNum - 1) * blockCount) + 1;
+
+  // console.log(blockStart);    
+
+  // 블록안에 있는 페이징의 끝 번호 값을 알아내자
+  
+  let blockEnd = blockStart + blockCount -1 ;
+
+  // 데이터베이스 콜렉션에 있는 전체 객체의 갯수값 가져오는 명령어
+
+  let totalData = await db.collection("ex15_storelist").countDocuments({});
+  
+  // console.log(totalData);
+
+  // 전체 데이터값을 통해서 -> 몃개의 페이징 번호가 만들어져야 하는지 계산
+
+  let paging = Math.ceil(totalData / perPage);
+
+  // 블록에서 마지막 번호가 페이징의 끝번호보다 크다면 페이징의 끝번호를 강제로 부여
+  if(blockEnd > paging){
+      blockEnd = paging;
+  }
+
+  // 블록의 총 갯수 구하기
+
+  let totalBlock = Math.ceil(paging / blockCount);
+  
+  // 데이터베이스에서 꺼내오는 데이터의 순번값을 결정   0 2번페이지2 4
+
+  let startFrom = (pageNumber -1) * perPage 
+
+
+  // 데이터베이스 콜렉션에서 데이터값을 2개씩 순번에 맞춰서 가져오기
   db.collection("ex15_storelist").find({}).toArray((err,result)=>{
-    res.render("store",{storelist:result});
+    
+ 
+    db.collection("ex15_storelist").find({}).sort({number:-1}).skip(startFrom).limit(perPage).toArray((err,result)=>{ // 역순-1  정순서 1
+      // console.log(result);                 //역순      //순서   //2개
+      res.render("store",{storelist:result,
+                          paging:paging,
+                          pageNumber:pageNumber,
+                          blockStart:blockStart,
+                          blockEnd:blockEnd,
+                          blockNum:blockNum,
+                          totalBlock:totalBlock});
+    }); 
   });
 });
+
+
 
 // 매장 지역검색 결과화면 페이지(사용자)
 app.get("/search/local",(req,res)=>{
   // 시/도 선택시 
   if(req.query.city1 !== "" && req.query.city2 === ""){
     db.collection("ex15_storelist").find({sido:req.query.city1}).toArray((err,result)=>{
-      res.render("store",{storelist:result});
+      res.render("store_result",{storelist:result,userData:req.user});
     });
   }
   // 시/도 구/군 선택시
   else if (req.query.city1 !== "" && req.query.city2 !==""){
     db.collection("ex15_storelist").find({sido:req.query.city1,sigugun:req.query.city2}).toArray((err,result)=>{
-      res.render("store",{storelist:result});
+      res.render("store_result",{storelist:result,userData:req.user});
     });
 
   }
@@ -275,7 +339,7 @@ passport.serializeUser(function (user, done) {
   if(req.query.name !==""){
     db.collection("ex15_storelist").aggregate(storeSearch).toArray((err,result)=>{
       // 내가입력한 검색단어 매치
-      res.render("store",{storelist:result});                                    
+      res.render("store_result",{storelist:result,userData:req.user});                                    
   });
 
   }
@@ -352,12 +416,7 @@ app.post("/addinsert",upload.single('file'),(req,res)=>{
 })
 
 //게시글 목록 get 요청
-app.get("/brdlist",function(req,res){
-  db.collection("ex15_insert").find().toArray(function(err,result){
-      res.render("brdlist",{insertData2:result});
-  });
-  //db안에 게시글 콜렉션 찾아서 데이터 전부 꺼내오고 ejs파일로 응답
-});
+
 
 // 게시글 상세화면 get 요청 / :변수명 작명가능
 app.get("/brddetail/:no",function(req,res){  //no 작명  // 원하는 페이지만 갖고옴
@@ -376,3 +435,97 @@ app.get("/brddetail/:no",function(req,res){  //no 작명  // 원하는 페이지
     
     //db안에 게시글 콜렉션 찾아서 데이터 전부 꺼내오고 ejs파일로 응답
   });
+
+
+  
+//게시판 화면 get 요청
+app.get("/brdlist",async (req,res)=>{
+  // query string 보내줌 데이터값 받는 방법
+  // console.log(req.query.page);  // boardtest?page=300
+  // res.send("테스트");
+
+  // 사용자가 게시판에 접속시 몃번 페이징 번호로 접속했는지 체크
+  // let pageNumber = typeof(req.query.page);
+  // console.log(pageNumber);
+  // res.send("테스트");
+  let pageNumber = (req.query.page ==null) ? 1 : Number(req.query.page) ; //let pageNumber = 조건식 ? 참 : 거짓 ;
+  // console.log(pageNumber);
+  
+  // 블록당 보여줄 데이터 갯수  
+  let perPage = 3;   // 게시판 목록에 보여줄 갯수
+  
+  // 블록당 보여줄 페이징 번호 갯수
+
+  let blockCount = 3; // 숫자에 따라 계산은 달라짐
+
+  // 현재 페이지 블록 구하기
+
+  let blockNum = Math.ceil(pageNumber / blockCount);  // Math.ceil 올림
+
+  // console.log(blockNum);
+
+  // 블록안에 있는 페이징의 시작번호 값을 알아내기
+
+  let blockStart = ((blockNum - 1) * blockCount) + 1;
+
+  // console.log(blockStart);    
+
+  // 블록안에 있는 페이징의 끝 번호 값을 알아내자
+  
+  let blockEnd = blockStart + blockCount -1 ;
+
+  // 데이터베이스 콜렉션에 있는 전체 객체의 갯수값 가져오는 명령어
+
+  let totalData = await db.collection("ex15_insert").countDocuments({});
+  
+  // console.log(totalData);
+
+  // 전체 데이터값을 통해서 -> 몃개의 페이징 번호가 만들어져야 하는지 계산
+
+  let paging = Math.ceil(totalData / perPage);
+
+  // 블록에서 마지막 번호가 페이징의 끝번호보다 크다면 페이징의 끝번호를 강제로 부여
+  if(blockEnd > paging){
+      blockEnd = paging;
+  }
+
+  // 블록의 총 갯수 구하기
+
+  let totalBlock = Math.ceil(paging / blockCount);
+  
+  // 데이터베이스에서 꺼내오는 데이터의 순번값을 결정   0 2번페이지2 4
+
+  let startFrom = (pageNumber -1) * perPage 
+
+
+  // 데이터베이스 콜렉션에서 데이터값을 2개씩 순번에 맞춰서 가져오기
+  db.collection("ex15_insert").find({}).sort({number:-1}).skip(startFrom).limit(perPage).toArray((err,result)=>{ // 역순-1  정순서 1
+      // console.log(result);                 //역순      //순서   //2개
+      res.render("brdlist",{insertData2:result,
+                          paging:paging,
+                          pageNumber:pageNumber,
+                          blockStart:blockStart,
+                          blockEnd:blockEnd,
+                          blockNum:blockNum,
+                          totalBlock:totalBlock});
+  }); 
+      // board.ejs에 전달해줘야할 데이터들
+      // 1.board 콜렉션에서 가지고온 데이터값 result
+      // 2.페이징 번호의 총 갯수값 paging
+      // 3.몃번 페이징을 보고 있는지 번호값 pageNumber
+      // 4.블록안에 페이징 시작하는 번호값 blockStart
+      // 5.블록안에 페이징 끝나는 번호값 blockEnd
+      // 6.블록 번호 순서값 blockNum
+      // 7.블록 총 갯수 totalBlock
+  
+
+  // sort({정렬할프로퍼티명:1}) 1 오름차순 -1 은 내림차순
+
+  // 블록의 총갯수 , 데이터베이스에 실제 값을 꺼내기 위해 몇개씩 꺼내올건지 설정 , find 명령어 sort() skip() limit()
+
+  // 만약 블록안에 있는 페이징의 끝 번호값이 전체 페이징 갯수보다 많다면 강제로 마지막 페이징 번호 부여
+  
+ 
+});
+
+// 조건문을 이용해서 입력한 검색어가 있는 경우는 aggregate({}).sort()skip().limit()

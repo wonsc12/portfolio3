@@ -74,17 +74,22 @@ function countUp(inc,sel,des,speed){
 moveCheck = false;
 
 let num = 0;
+let numChange = "";  //숫자 카운트 되는 것을 , 붙여서 변환되는 데이터를 받아주는 변수                           
+let desChange = ""; //숫자 카운트 다끝나고 마지막 숫자를 ,붙여서  변환하고 담아주는 변수
 
 let autoCount = setInterval(function(){
 
     num += inc;
     if(num >= des){
         clearInterval(autoCount);
-        document.querySelector(sel).innerHTML = des; // 다 올라간 숫자
-        
+         // 다 올라간 숫자
+         desChange = des.toLocaleString("ko-kr");
+        document.querySelector(sel).innerHTML = desChange;
     }
     else{
-        document.querySelector(sel).innerHTML = num; // 다 증가된 숫자
+         // 다 증가된 숫자
+         numChange = num.toLocaleString("ko-kr");
+        document.querySelector(sel).innerHTML = numChange;
     }
 },speed);
 }
