@@ -767,21 +767,21 @@
     }
 
      // 관리자 로그인 css
-     .adminheader {  display: flex; width: 100%; 
+     .adminheader {  display: flex; width: 80%; margin: 0 auto; 
         .admincenter { display: flex; justify-content: space-between; width: 100%;
             .tdsd { width: 25%; text-align: center;
                 li{ line-height: 150px; 
-                    a { font-size: 80px; color: brown;}
+                    a { font-size: 60px; color: brown;}
                 }
             }
             .login { width: 25%;
-                .loginuser { font-size: 40px;}
-                .loginb { font-size: 40px; }
-                .loginfd { font-size: 40px; margin: 20px 0;}
+                .loginuser { font-size: 30px;}
+                .loginb { font-size: 30px; }
+                .loginfd { font-size: 30px; margin: 20px 0;}
              }
              .selte {display: flex; width: 50%; text-align: center;
                 li { line-height: 150px; margin: 0 30px; width: 100%;
-                    a { color: brown; font-size: 20px;}
+                    a { color: brown; font-size: 18px; font-weight: bold;}
                 }
             }
         }

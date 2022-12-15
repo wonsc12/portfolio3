@@ -1794,7 +1794,8 @@ body {
 
 .adminheader {
   display: flex;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
 }
 .adminheader .admincenter {
   display: flex;
@@ -1809,20 +1810,20 @@ body {
   line-height: 150px;
 }
 .adminheader .admincenter .tdsd li a {
-  font-size: 80px;
+  font-size: 60px;
   color: brown;
 }
 .adminheader .admincenter .login {
   width: 25%;
 }
 .adminheader .admincenter .login .loginuser {
-  font-size: 40px;
+  font-size: 30px;
 }
 .adminheader .admincenter .login .loginb {
-  font-size: 40px;
+  font-size: 30px;
 }
 .adminheader .admincenter .login .loginfd {
-  font-size: 40px;
+  font-size: 30px;
   margin: 20px 0;
 }
 .adminheader .admincenter .selte {
@@ -1837,7 +1838,8 @@ body {
 }
 .adminheader .admincenter .selte li a {
   color: brown;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .insertcontainer {
