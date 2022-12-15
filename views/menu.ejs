@@ -27,7 +27,7 @@
                 <p class="trhan">한잔의 커피 마음을 달래다.</p>
                 <div class="trbox">
                     <ul class="trgnb">
-                        <li><a class="fsdf" href="/menu/Beverage">음료</a></li>
+                        <li><a class="on fsdf" href="/menu/Beverage">음료</a></li>
                         <li><a href="/menu/food">음식</a></li>
                         <li><a href="/menu/Signature">Signature</a></li>
                     </ul>
@@ -87,6 +87,9 @@
             </div>
             <div class="btnWrap">
                 <button class="loadMore">더보기</button>
+            </div>
+            <div class="sidemunu">
+                <h2></h2>
             </div>  
         </div>
     </div>
@@ -108,6 +111,7 @@
                 }
                 else {
                         item.classList.remove("on");
+                        
                 }
         });
         let currentPath2 = window.location.pathname;

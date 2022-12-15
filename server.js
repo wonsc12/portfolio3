@@ -10,7 +10,7 @@ const moment = require("moment");
 const momentTimezome = require("moment-timezone");
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended: true}));
@@ -274,6 +274,7 @@ app.get("/admin/prdlist",(req,res)=>{
       db.collection("ex15_prdlist").insertOne({
         num:result1.prdCount + 1,
         name:req.body.name,
+        context:req.body.context,
         thumbnail:fileTest, // 파일태그
         category:req.body.category // 셀렉트 태그
       },(err,result)=>{
