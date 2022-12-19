@@ -47,13 +47,14 @@
                     
                     <% for(let i=0; i< prdData.length; i++) {%>
                         
-                        <div class="listt">
+                        <div class="listt"><a class="menudeta" href="/menudetail/<%- prdData[i].num %>">
                             <div class="munuimage2">
                                 <img src="/upload/<%- prdData[i].thumbnail %>">
                             </div>
                             <div class="textp2">
-                                <p><%- prdData[i].name %></p>
+                                <p><%- prdData[i].name2 %></p>
                             </div>
+                        </a>
                         </div>
                     <% } %>  
                 </div>
@@ -75,14 +76,17 @@
         <div class="menus">
             <div class="listwrap">
                 <% for(let i=0; i< prdData.length; i++) {%>
-                    <div class="lists">
+                    
+                    <div class="lists"><a class="menudeta" href="/menudetail/<%- prdData[i].num %>">
                         <div class="munuimage">
                             <img src="/upload/<%- prdData[i].thumbnail %>">
                         </div>
                         <div class="textp">
-                            <p><%- prdData[i].name %></p>
+                            <p><%- prdData[i].name2 %></p>
                         </div>
+                    </a>
                     </div>
+                    
                 <% } %>  
             </div>
             <div class="btnWrap">

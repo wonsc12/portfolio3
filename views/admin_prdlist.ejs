@@ -27,7 +27,7 @@
             <div class="list">
                 <h3><%- prdData[i].num %></h3>
                 <p><%- prdData[i].category %></p>
-                <p><%- prdData[i].name %></p>
+                <p><%- prdData[i].name2 %></p>
                 <div class="imgse">
                     <img src="/upload/<%- prdData[i].thumbnail %>"> <!-- <img src="등록된 상품이미지 경로"> -->
                 </div>
@@ -41,8 +41,19 @@
                 <option value="푸드">푸드</option>
                 <option value="Signature">Signature</option>
             </select>
-            <input class="box5" type="text" name="name">
-            <input class="box6" type="file" name="thumbnail">
+            <input class="box5" type="text" name="name"placeholder="영어이름">
+            <input class="box5" type="text" name="name2"placeholder="한글 이름">
+            <input class="box5" type="text" name="tall"placeholder="제품영양 정보">
+            <input class="box5" type="text" name="kcal"placeholder="1회 제공량">
+            <input class="box5" type="text" name="fog"placeholder="포화지방">
+            <input class="box5" type="text" name="g"placeholder="단백질">
+            <input class="box5" type="text" name="nmg"placeholder="나트륨">
+            <input class="box5" type="text" name="sugar"placeholder="당류">
+            <input class="box5" type="text" name="Caffeine"placeholder="카페인">
+            <input class="box5" type="text" name="allergy"placeholder="알레르기">
+            <div>
+                <input class="box6" type="file" name="thumbnail">
+            </div>
             <div class="textarea">
                 <textarea class="texas"name="context" placeholder="내용 입력"></textarea>
             </div>

@@ -274,16 +274,37 @@ app.get("/admin/prdlist",(req,res)=>{
       db.collection("ex15_prdlist").insertOne({
         num:result1.prdCount + 1,
         name:req.body.name,
+        name2:req.body.name2,
+        tall:req.body.tall,
+        kcal:req.body.kcal,
+        fog:req.body.fog,
+        g:req.body.g,
+        nmg:req.body.nmg,
+        sugar:req.body.sugar,
+        Caffeine:req.body.Caffeine,
+        allergy:req.body.allergy,
         context:req.body.context,
         thumbnail:fileTest, // 파일태그
         category:req.body.category // 셀렉트 태그
+
       },(err,result)=>{
         db.collection("ex15_count").updateOne({name:"상품등록"},{$inc:{prdCount:1}},(err,result)=>{
           res.redirect("/admin/prdlist"); // 상품등록 페이지로 이동
         })
       })
     })                                    
-  });                   
+  });     
+  
+  // 게시글 상세화면 get 요청 / :변수명 작명가능
+app.get("/menudetail/:no",function(req,res){  //no 작명  // 원하는 페이지만 갖고옴
+  // db안에 해당 게시글번호에 맞는 데이터만 꺼내오고 ejs 파일로 응답
+  db.collection("ex15_prdlist").updateOne({num:Number(req.params.no)},{$inc:{brdviews:1}},function(err,result1){
+      db.collection("ex15_prdlist").findOne({num:Number(req.params.no)},function(err,result1){
+          
+              res.render("menudetail",{prdlist:result1,});  
+          });                                //게시물                        
+      });
+  });
   
 
 //  /loginresult 경로 요청시 passport.autenticate() 함수구간이 아이디 비번 로그인 검증구간
